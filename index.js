@@ -9,7 +9,7 @@ const db = new pg.Client({
     user: "postgres",
     host: "localhost",
     database: "world",
-    password: "", //you need to have some register in pgAdmin4. After this, you need to insert your pswd here.
+    password: "95990919", //you need to have some register in pgAdmin4. After this, you need to insert your pswd here.
     port: 5432,
 });
 
@@ -32,26 +32,28 @@ async function getVisitedCountry() {
 }
 
 let users = [];
+let color = [];
 async function getUser() {
     const consult = await db.query("SELECT * FROM users");
+    color.push(consult.rows);
     users = consult.rows;
-    return users.find((user) => user.id == currentUserId);
+    return users;
 }
 
 //done
 app.post('/home', async (req, res) =>{
     res.redirect('/');
-})
+});
 
 //done
 app.get("/", async (req, res) => {
-    const usersArr = await getUser();
+    await getUser();
     const visitedCountriesArr = await getVisitedCountry();
     res.render("index.ejs", {
         users: users,
         total: visitedCountriesArr.length,
         countries: visitedCountriesArr,
-        color: usersArr.color
+        color: 'lightgray'
     });
 });
 
@@ -91,27 +93,31 @@ app.post("/deleteUser", async (req, res) =>{
 app.post("/currentUsers", async (req, res) => {
     const name = req.body.buttonClicked;
     const choice = req.body.radioCheck;
-    const colorConsult = await db.query(
-        "SELECT color FROM users WHERE name = $1",
+    const consult = await db.query(
+        "SELECT color, id FROM users WHERE name = $1",
         [name]
     );
-    const color = colorConsult.rows[0].color;
-    console.log(color);
-    console.log(currentUserId);
-    console.log(name);
+    const color = consult.rows[0].color;
+    const id = consult.rows[0].id;
     if (choice === "no"){
-        await getUser();
-        res.render("delete.ejs",{users: users});
+        currentUserId = id;
+        res.render("delete.ejs", {users: users});
     }else{
         await db.query(
             "DELETE FROM visited_countries WHERE user_id = $1",
-            [currentUserId]
+            [id]
         );
         await db.query(
             "DELETE FROM users WHERE name = $1 AND color = $2;",
             [name, color]
         );
+        const usersId = await db.query(
+            "SELECT id FROM users LIMIT 1"
+        );
+        currentUserId = usersId.rows[0].id;
+        console.log(usersId.rows[0].id);
         await getUser();
+        await getVisitedCountry();
         res.redirect("/");
     }
 });
