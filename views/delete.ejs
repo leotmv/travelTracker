@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete User Space</title>
+    <link rel="stylesheet" href="/delete_page.css">
+</head>
+<body>
+    <fieldset>
+        <h1>Choose a name to delete</h1>
+        <form method="post">
+            <ul>
+                <% users.forEach(userAndColor => { %>
+                    <li>
+                        <input class="formatButtonUser" type="radio" value="<%=userAndColor.name%>" name="buttonClicked" style="background: <%=userAndColor.color%>">
+                            <span> <%=userAndColor.name%> </span>
+                        </input>
+                    </li>
+                <%});%>
+            </ul>
+            <strong><p>Are you sure?</p></strong>
+            <input class="choice" type="radio" value="yes" name="radioCheck" checked>
+            <label>Yes</label>
+            <input class="choice" type="radio" value="no" name="radioCheck">
+            <label>No</label>
+            <button formaction="/currentUsers" class="goButton"type="submit" value="Go" name="Go">Go</button>
+            <button formaction="/home" class="home" type="submit" value="home" name="home">Home</button>
+        </form>
+    </fieldset>
+</body>
+</html>

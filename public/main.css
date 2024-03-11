@@ -1,0 +1,275 @@
+html {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: #21252b;
+    font-family: "Roboto", sans-serif;
+}
+
+.ag-canvas {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    visibility: visible;
+    width: 100%;
+    height: 90%;
+    padding: 2.5rem 1rem;
+    opacity: 1;
+    transition: opacity 0.5s;
+    margin-top: -64px;
+}
+
+path {
+    transform: scale(var(--scale));
+}
+
+svg path:hover {
+    fill: #003784;
+    transition: 0.6s;
+    cursor: pointer;
+    --scale: 1.005;
+}
+
+.ag-canvas_svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    margin-left: 1rem;
+}
+
+.ag-canvas_svg path {
+    fill: #383d46;
+    fill-opacity: 1;
+    stroke: lightblue;
+    transition: fill 0.3s;
+    stroke-opacity: 1;
+    stroke-width: 0.5px;
+    transition: 0.5s;
+}
+
+@media screen and (max-width: 767px) {
+    .ag-canvas {
+        -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        height: auto;
+        padding: 4rem 1rem 1rem;
+    }
+
+    .ag-canvas_svg {
+        max-height: calc(100% - 6rem);
+        margin-left: 0;
+    }
+}
+
+.container {
+    display: flex;
+    height: 60px;
+    align-items: center;
+}
+
+#formatButtonAdd {
+    color: wheat;
+    background-color: #3c5c38c1;
+    border-radius: 30px;
+    width: 150px;
+    height: 45px;
+    cursor: pointer;
+    outline: none;
+    border: solid black;
+    font-size: 14px;
+}
+
+#formatButtonDelete{
+    color: wheat;
+    background-color: #5c3838b7;
+    border-radius: 30px;
+    width: 150px;
+    height: 45px;
+    cursor: pointer;
+    outline: none;
+    border: solid black;
+    font-size: 14px;
+}
+
+.delFamilyMember{
+    height: 50px;
+}
+
+.delFamilyMember ul form{
+    list-style: none;
+    display: flex;
+    height: 18px;
+    align-items: center;
+    position: fixed;
+    right: 8px;
+}
+
+.familyMember {
+    height: 50px;
+}
+
+.familyMember ul form {
+    list-style: none;
+    display: flex;
+    height: 18px;
+    align-items: center;
+    position: fixed;
+    right: 200px
+}
+
+.wrapper {
+    height: 55px;
+    max-width: 1100px;
+    overflow-y: hidden;
+    background-color: #383d46;
+    border-radius: 8px;
+    border: solid black 2px;
+}
+
+.wrapper ul form {
+    list-style: none;
+    display: flex;
+    height: 17px;
+    gap: 30px;
+    align-items: center;
+    position: relative;
+    right: 40px;
+}
+
+.wrapper ul form li button {
+    border-radius: 15px;
+    width: 150px;
+    height: 35px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none;
+    border: solid black;
+}
+
+.wrapper ul li button:hover {
+    opacity: 0.75;
+    transition: all 0.3s ease
+}
+
+/* width */
+::-webkit-scrollbar {
+    height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px lightgray;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: darkred;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: lightgreen;
+}
+
+#inputCountries {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #383d46;
+    color: antiquewhite;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+    height: 50px;
+    border-radius: 0.5rem;
+    z-index: -1;
+    outline: none;
+    border: solid black 2px;
+}
+
+.addButton {
+    font-family: "Roboto", sans-serif;
+    transform: scale(var(--scale));
+    text-transform: uppercase;
+    outline: 0;
+    background: teal;
+    border-radius: 0.5rem;
+    border: 0;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    top: -65px;
+    height: 50px;
+    border: solid black 2px;
+}
+
+.deleteButton {
+    font-family: "Roboto", sans-serif;
+    transform: scale(var(--scale));
+    text-transform: uppercase;
+    outline: 0;
+    background: red;
+    border-radius: 0.5rem;
+    border: 0;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    top: -65px;
+    left: 1365px;
+    height: 50px;
+    border: solid black 2px;
+}
+
+button:hover {
+    opacity: 50%;
+    --scale: 1.1;
+}
+
+.align {
+    display: flex;
+    flex-direction: column;
+}
+
+.total-count {
+    font-family: "Roboto", sans-serif;
+    color: white;
+    position: absolute;
+    padding: 15px;
+    left: 0;
+    bottom: 0;
+}

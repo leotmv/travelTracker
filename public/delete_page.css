@@ -1,0 +1,97 @@
+html {
+    background: #21252b;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto";
+    height: 70vh;
+    color: #ffffff;
+}
+
+span{
+    font-size: 18px;
+    padding: 2.5px;
+    text-transform: uppercase;
+}
+
+span:hover{
+    color:darkred;
+}
+
+h1{
+    color: black;
+}
+
+label{
+    font-size: 18px;
+}
+
+.formatButtonUser{
+    accent-color: red;
+}
+
+.formatButtonUser,span{
+    outline: none;
+    position: relative;
+    right: 50px;
+    width: 50px;
+    height: 15px;
+}
+
+input, button{
+    cursor: pointer;
+}
+
+
+.home{
+    color: red;
+    width: 100px;
+    height: 30px;
+    background-color: #292e36;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    position: relative;
+    left: 20px;
+}
+
+.goButton{
+    color: lightgreen;
+    width: 100px;
+    height: 30px;
+    background-color: #292e36;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    position: relative;
+    left: 10px;
+}
+
+fieldset{
+    color: #fff;
+    text-align: left;
+    border-radius: 0.3rem;
+    background-color: #383d46;
+}
+
+li{
+    list-style-type: none;
+}
+
+
