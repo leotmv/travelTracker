@@ -114,8 +114,6 @@ app.post("/currentUsers", async (req, res) => {
         await getUser();
         res.redirect("/");
     }
-
-    
 });
 
 //done
