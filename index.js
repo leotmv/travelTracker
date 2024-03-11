@@ -9,7 +9,7 @@ const db = new pg.Client({
     user: "postgres",
     host: "localhost",
     database: "world",
-    password: "95990919", //you need to have some register in pgAdmin4. After this, you need to insert your pswd here.
+    password: "", //you need to have some register in pgAdmin4. After this, you need to insert your pswd here.
     port: 5432,
 });
 
